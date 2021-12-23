@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Hospital.Model;
+using Hospital.Repository;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -27,6 +29,17 @@ namespace Hospital.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
+            var doc = new Doctor();
+            doc.Id = Guid.NewGuid();
+            doc.Field = "Surgen";
+            doc.Name = "Nikita";
+            var nur=new Nurse();
+
+            var abc = new DoctorRepository();
+            //abc.AddData(doc);
+            var doctors= abc.GetDoctor();
+            var xyz = new NurseRepository();
+            //xyz.AddData();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
