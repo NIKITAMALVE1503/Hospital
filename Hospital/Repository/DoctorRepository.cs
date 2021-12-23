@@ -48,7 +48,8 @@ namespace Hospital.Repository
                         var r = Serialize(reader);
                         string json = JsonConvert.SerializeObject(r, Formatting.Indented);
                         //var jsonString=this.sqlDatoToJson(reader);
-                        var abc = JsonConvert.DeserializeObject<Doctor>(json);
+
+                        var abc = JsonConvert.DeserializeObject<dynamic>(json);
                         
                         xyz.Add(abc);
                         Console.WriteLine(reader["Id"].ToString());
