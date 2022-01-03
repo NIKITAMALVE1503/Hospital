@@ -1,52 +1,65 @@
-﻿using Hospital.Model;
-using Hospital.Repository;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿//using Hospital.DBModel;
 
-namespace Hospital.Controllers
-{
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
-    {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+//using Hospital.Repository;
+//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.Extensions.Logging;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Threading.Tasks;
 
-        private readonly ILogger<WeatherForecastController> _logger;
+//namespace Hospital.Controllers
+//{
+//    [ApiController]
+//    [Route("[controller]")]
+//    public class WeatherForecastController : ControllerBase
+//    {
+//        private static readonly string[] Summaries = new[]
+//        {
+//            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+//        };
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
+//        private readonly ILogger<WeatherForecastController> _logger;
 
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            var rng = new Random();
-            var doc = new Doctor();
-            doc.Id = Guid.NewGuid();
-            doc.Field = "Surgen";
-            doc.Name = "Nikita";
-            var nur=new Nurse();
+//        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+//        {
+//            _logger = logger;
+//        }
 
-            var abc = new DoctorRepository();
-            //abc.AddData(doc);
-            var doctors= abc.GetDoctor();
-            var xyz = new NurseRepository();
-            //xyz.AddData();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
-    }
-}
+//        [HttpGet]
+//       // public IEnumerable<Doctor> Get()
+//        //{
+//            //var rng = new Random();
+//            //var doc = new Doctor();
+            
+//            //doc.Id = Guid.NewGuid();
+//            //doc.Field = "Surgen";
+//            //doc.FirstName = "Nikita";
+//            //doc.LastName = "Malve";
+
+//            //var nur=new Nurse();
+//            //nur.Id = Guid.NewGuid();
+//            //nur.FirstName = "Harry";
+//            //nur.LastName = "Potter";
+//            //nur.Age = 35;
+//            //nur.WardId = 12;
+
+//            //var abc = new DoctorRepository();
+//            //abc.AddData(doc);
+//            //var doctors= abc.GetDoctor();
+//            //var xyz = new NurseRepository();
+//            //xyz.DeleteData(nur);
+
+//            //return doctors;
+
+
+//            //return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+//            //{
+//            //    Date = DateTime.Now.AddDays(index),
+//            //    TemperatureC = rng.Next(-20, 55),
+//            //    Summary = Summaries[rng.Next(Summaries.Length)]
+//            //})
+//            //.ToArray();
+//       // }
+//    }
+//}
