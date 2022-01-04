@@ -2,7 +2,7 @@
 
 namespace Hospital.DBModel
 {
-    public partial class HospitalDB : BaseModel
+    public  class HospitalDb : BaseModel
     {
         public string HospitalName { get; set; }
         public string HospitalDescription { get; set; }

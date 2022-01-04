@@ -1,6 +1,7 @@
 ﻿using Hospital.DBModel;
 using Hospital.Repository;
 using Hospital.Services.IServices;
+using System;
 using System.Collections.Generic;
 
 namespace Hospital.Services
@@ -20,7 +21,7 @@ namespace Hospital.Services
             return result.ToString();
         }
 
-        public string DeleteAppointment(int id)
+        public string DeleteAppointment(Guid id)
         {
             var result = _appointmentRepository.Delete(id);
             return result.ToString();
@@ -32,7 +33,7 @@ namespace Hospital.Services
             return appointments;
         }
 
-        public Appointment GetAppointment(int id)
+        public Appointment GetAppointment(Guid id)
         {
             var appointment = _appointmentRepository.GetById(id);
             return appointment;

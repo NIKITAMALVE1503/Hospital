@@ -42,9 +42,9 @@ namespace Hospital.DBModel
 
             modelBuilder.Entity<Doctor>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("Doctor");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Name)
                     .HasMaxLength(255)

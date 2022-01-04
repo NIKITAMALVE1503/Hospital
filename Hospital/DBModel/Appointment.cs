@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Hospital.DBModel
 {
-    public partial class Appointment : BaseModel
+    public  class Appointment : BaseModel
     {
        
         public int? DoctorId { get; set; }

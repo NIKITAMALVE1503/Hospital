@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Hospital.DBModel;
 using Hospital.Services.IServices;
 using System.Collections.Generic;
+using System;
 
 namespace Hospital.Controllers
 {
@@ -25,7 +26,7 @@ namespace Hospital.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public ActionResult<Appointment> GetById(int id)
+        public ActionResult<Appointment> GetById(Guid id)
         {
             var result = _appointmentService.GetAppointment(id);
             return result;
@@ -60,7 +61,7 @@ namespace Hospital.Controllers
         }
 
         [HttpPost("DeleteAppointment/{id}")]
-        public ActionResult<Appointment> DeleteAppointment(int id)
+        public ActionResult<Appointment> DeleteAppointment(Guid id)
         {
             var result = _appointmentService.DeleteAppointment(id);
             if (result == "sucess")

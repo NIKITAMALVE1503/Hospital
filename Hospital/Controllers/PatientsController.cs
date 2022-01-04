@@ -3,6 +3,7 @@ using Hospital.DBModel;
 using Hospital.Services.IServices;
 using System.Collections.Generic;
 using Hospital.IServices;
+using System;
 
 namespace Hospital.Controllers
 {
@@ -25,7 +26,7 @@ namespace Hospital.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public ActionResult<Patient> GetById(int id)
+        public ActionResult<Patient> GetById(Guid id)
         {
             var result = _patientService.GetPatient(id);
             return result;
@@ -60,7 +61,7 @@ namespace Hospital.Controllers
         }
 
         [HttpPost("DeletePatient/{id}")]
-        public ActionResult<Patient> DeletePatient(int id)
+        public ActionResult<Patient> DeletePatient(Guid id)
         {
             var result = _patientService.DeletePatient(id);
             if (result == "sucess")

@@ -3,7 +3,7 @@ using Hospital.Repository.EFRepository;
 
 namespace Hospital.Repository.EFRepository
 {
-    public class EfHospitalRepository : EfBaseRepository<HospitalDB>
+    public class EfHospitalRepository : EfBaseRepository<HospitalDb>
     {
         private readonly HospitalContext _context;
 

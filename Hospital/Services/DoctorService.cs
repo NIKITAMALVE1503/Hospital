@@ -1,6 +1,7 @@
 ﻿using Hospital.DBModel;
 using Hospital.Repository;
 using Hospital.Services.IServices;
+using System;
 using System.Collections.Generic;
 
 namespace Hospital.Services
@@ -20,7 +21,7 @@ namespace Hospital.Services
             return result.ToString();
         }
 
-        public string DeleteDoctor(int id)
+        public string DeleteDoctor(Guid id)
         {
             var result = _doctorRepository.Delete(id);
             return result.ToString();
@@ -32,7 +33,7 @@ namespace Hospital.Services
             return doctors;
         }
 
-        public Doctor GetDoctor(int id)
+        public Doctor GetDoctor(Guid id)
         {
             var doctor = _doctorRepository.GetById(id);
             return doctor;

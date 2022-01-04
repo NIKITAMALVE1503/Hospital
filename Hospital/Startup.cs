@@ -38,12 +38,12 @@ namespace Hospital
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IBaseRepository<Patient>, EfPatientRepository>();
             services.AddScoped<IBaseRepository<Doctor>, EfDoctorRepository>();
-            services.AddScoped<IBaseRepository<HospitalDB>, EfHospitalRepository>();
+            services.AddScoped<IBaseRepository<HospitalDb>, EfHospitalRepository>();
             services.AddScoped<IBaseRepository<Appointment>, EfAppointmentRepository>();
-            //services.AddScoped<IPatientService, PatientService>();
-            services.AddScoped<IHospitalService, HospitalService>();
-            services.AddScoped<IDoctorService, DoctorService>();
-            services.AddScoped<IAppointmentService, AppointmentService>();
+            services.AddTransient<IPatientService, PatientService>();
+            services.AddTransient<IHospitalService, HospitalService>();
+            services.AddTransient<IDoctorService, DoctorService>();
+            services.AddTransient<IAppointmentService, AppointmentService>();
             services.AddControllers();
         }
 

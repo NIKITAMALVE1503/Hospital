@@ -3,6 +3,7 @@ using Hospital.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using BaseModel = Hospital.DBModel.BaseModel;
 
 namespace Hospital.Repository.EFRepository
@@ -22,7 +23,7 @@ namespace Hospital.Repository.EFRepository
             return entities;
         }
 
-        public virtual T GetById(int id)
+        public virtual T GetById(Guid id)
         {
             var entities = _context.Set<T>().Where(x => x.Id == id).FirstOrDefault();
             return entities;
@@ -32,30 +33,30 @@ namespace Hospital.Repository.EFRepository
         {
             try
             {
-                _context.Set<T>().AddAsync(entity);
-                _context.SaveChangesAsync();
+                 _context.Set<T>().Add(entity);
+                 _context.SaveChangesAsync();
 
                 return "sucess";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return "fail";
+                return ex.ToString();
             }
         }
 
-        public virtual string Delete(int id)
+        public  virtual string Delete(Guid id)
         {
             try
             {
                 var entity = GetById(id);
-                _context.Set<T>().Remove(entity);
-                _context.SaveChangesAsync();
+                 _context.Set<T>().Remove(entity);
+                 _context.SaveChangesAsync();
 
                 return "success";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return "fail";
+                return ex.ToString();
             }
         }
 
@@ -64,13 +65,13 @@ namespace Hospital.Repository.EFRepository
             try
             {
                 _context.Set<T>().Update(entity);
-                _context.SaveChangesAsync();
+                 _context.SaveChangesAsync();
 
                 return "sucess";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return "fail";
+                return ex.ToString();
             }
         }
     }

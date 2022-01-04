@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Hospital.DBModel
 {
-    public partial class Doctor : BaseModel
+    public  class Doctor : BaseModel
     {
         public string Name { get; set; }
         public int? HospitalId { get; set; }

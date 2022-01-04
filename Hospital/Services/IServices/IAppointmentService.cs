@@ -1,4 +1,5 @@
 ﻿using Hospital.DBModel;
+using System;
 using System.Collections.Generic;
 
 namespace Hospital.Services.IServices
@@ -6,9 +7,9 @@ namespace Hospital.Services.IServices
     public interface IAppointmentService
     {
         public List<Appointment> GetAllAppointments();
-        public Appointment GetAppointment(int id);
+        public Appointment GetAppointment(Guid id);
         public string AddAppointment(Appointment appointment);
         public string UpdateAppointment(Appointment appointment);
-        public string DeleteAppointment(int id);
+        public string DeleteAppointment(Guid id);
     }
 }
